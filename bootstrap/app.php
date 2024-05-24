@@ -48,6 +48,12 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->singleton(
+    Illuminate\Contracts\Routing\ResponseFactory::class,
+    Laravel\Lumen\Http\ResponseFactory::class
+);
+
+
 /*
 |--------------------------------------------------------------------------
 | Register Config Files
@@ -60,6 +66,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('logging');
 
 /*
 |--------------------------------------------------------------------------
@@ -91,9 +98,10 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
